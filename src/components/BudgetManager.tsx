@@ -97,6 +97,7 @@ function BudgetManager() {
     <div className="budget-container">
       <h2>Budget Manager</h2>
 
+
       {/* Stats Cards */}
       <div className="budget-stats">
         <div className="stat-card income">
