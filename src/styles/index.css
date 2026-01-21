@@ -1,0 +1,308 @@
+:root {
+  --primary-color: #4f46e5;
+  --secondary-color: #10b981;
+  --danger-color: #ef4444;
+  --warning-color: #f59e0b;
+  --background: #f9fafb;
+  --surface: #ffffff;
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --border-color: #e5e7eb;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode {
+  --background: #1a1a2e;
+  --surface: #16213e;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0b0;
+  --border-color: #334155;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transition: background 0.3s ease;
+}
+
+.app-container.dark-mode {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+.app-header {
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%);
+  color: white;
+  padding: 1rem;
+  box-shadow: var(--shadow-lg);
+  transition: all 0.3s ease;
+}
+
+.dark-mode .app-header {
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.95) 0%, rgba(22, 33, 62, 0.95) 100%);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.app-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  text-align: left;
+}
+
+.app-header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  font-weight: 300;
+  text-align: left;
+}
+
+.dark-mode-toggle {
+  font-size: 1.8rem;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dark-mode-toggle:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1) rotate(20deg);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+}
+
+.app-nav {
+  display: flex;
+  gap: .5rem;
+  padding: .7rem;
+  background-color: rgba(255, 255, 255, 0.95);
+  flex-wrap: wrap;
+  justify-content: center;
+  box-shadow: var(--shadow);
+  border-bottom: 2px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.dark-mode .app-nav {
+  background-color: var(--surface);
+  border-bottom-color: var(--border-color);
+}
+
+.nav-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--border-color);
+  background-color: var(--surface);
+  color: var(--text-primary);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nav-button:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+}
+
+.nav-button.active {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
+.nav-utilities {
+  display: flex;
+  gap: 0.5rem;
+  margin-left: auto;
+  align-items: center;
+}
+
+.utilities-btn {
+  font-size: 1.2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(79, 70, 229, 0.3);
+  color: var(--text-primary);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.utilities-btn:hover {
+  background: rgba(79, 70, 229, 0.2);
+  border-color: var(--primary-color);
+  transform: scale(1.1);
+}
+
+.utilities-btn.danger:hover {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: var(--danger-color);
+  color: var(--danger-color);
+}
+
+.tab-icon {
+  font-size: 1.2rem;
+}
+
+.tab-label {
+  font-weight: 600;
+}
+
+.app-main {
+  flex: 1;
+  overflow-y: auto;
+  padding: 2rem;
+  background: var(--background);
+  transition: background 0.3s ease;
+}
+
+.component-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: var(--surface);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: var(--shadow-lg);
+  min-height: 100%;
+  animation: fadeIn 0.4s ease;
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.app-footer {
+  background-color: rgba(31, 41, 55, 0.95);
+  color: white;
+  text-align: center;
+  padding: .5rem;
+  border-top: 2px solid var(--border-color);
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.dark-mode .app-footer {
+  background-color: rgba(22, 33, 62, 0.95);
+}
+
+@media (max-width: 768px) {
+  .app-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .app-nav {
+    gap: 0.5rem;
+  }
+
+  .nav-button {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .tab-label {
+    display: none;
+  }
+
+  .app-main {
+    padding: 1rem;
+  }
+
+  .component-container {
+    padding: 1.5rem;
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}

@@ -1,0 +1,212 @@
+.calculator-container {
+  width: 100%;
+}
+
+.calculator-container h2 {
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+.calculator-layout {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 2rem;
+}
+
+.calculator-main {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  height: fit-content;
+}
+
+.calculator-display {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: right;
+  word-wrap: break-word;
+  word-break: break-all;
+  min-height: 80px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.calculator-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+}
+
+.calc-button {
+  padding: 1rem;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.calc-button.number {
+  background-color: rgba(255, 255, 255, 0.25);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+.calc-button.number:hover {
+  background-color: rgba(255, 255, 255, 0.35);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.calc-button.number:active {
+  background-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(0);
+}
+
+.calc-button.operator {
+  background-color: #f59e0b;
+  color: white;
+  border: 2px solid #d97706;
+}
+
+.calc-button.operator:hover {
+  background-color: #d97706;
+  border-color: #b45309;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(217, 119, 6, 0.3);
+}
+
+.calc-button.operator:active {
+  transform: translateY(0);
+}
+
+.calc-button.equals {
+  background-color: #10b981;
+  color: white;
+  grid-column: span 2;
+  border: 2px solid #059669;
+}
+
+.calc-button.equals:hover {
+  background-color: #059669;
+  border-color: #047857;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.calc-button.equals:active {
+  transform: translateY(0);
+}
+
+.calc-button.clear {
+  background-color: #ef4444;
+  color: white;
+  border: 2px solid #dc2626;
+}
+
+.calc-button.clear:hover {
+  background-color: #dc2626;
+  border-color: #991b1b;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.calc-button.clear:active {
+  transform: translateY(0);
+}
+
+.calc-button.wide {
+  grid-column: span 2;
+}
+
+.calc-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.calculator-history {
+  background-color: var(--background);
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.history-header h3 {
+  color: var(--primary-color);
+  font-size: 1.3rem;
+}
+
+.clear-history-btn {
+  padding: 0.5rem 1rem;
+  background-color: var(--danger-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.clear-history-btn:hover {
+  background-color: #dc2626;
+}
+
+.history-list {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-height: 400px;
+}
+
+.history-item {
+  padding: 1rem;
+  background-color: rgb(13, 12, 12);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-family: 'Courier New', monospace;
+  color: var(--text-primary);
+  word-break: break-all;
+}
+
+@media (max-width: 768px) {
+  .calculator-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .calculator-buttons {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .calc-button.equals {
+    grid-column: span 2;
+  }
+
+  .calc-button.wide {
+    grid-column: span 2;
+  }
+}

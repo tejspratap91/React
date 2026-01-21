@@ -1,0 +1,253 @@
+.weather-container {
+  width: 100%;
+}
+
+.weather-container h2 {
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+.weather-search {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.weather-search-wrapper {
+  flex: 1;
+  position: relative;
+}
+
+.weather-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: var(--surface);
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+
+.weather-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.weather-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--surface);
+  border: 2px solid var(--primary-color);
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  max-height: 350px;
+  overflow-y: auto;
+  z-index: 100;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.suggestion-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.suggestion-item:last-child {
+  border-bottom: none;
+}
+
+.suggestion-item:hover {
+  background-color: rgba(79, 70, 229, 0.08);
+  padding-left: 1.5rem;
+}
+
+.suggestion-item.history {
+  background-color: rgba(79, 70, 229, 0.03);
+}
+
+.suggestion-item.history:hover {
+  background-color: rgba(79, 70, 229, 0.12);
+}
+
+.suggestion-icon {
+  font-size: 1.1rem;
+  min-width: 24px;
+  text-align: center;
+}
+
+.suggestion-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.suggestion-text {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.suggestion-location {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+.suggestion-temp {
+  color: var(--primary-color);
+  font-weight: 600;
+  background: rgba(79, 70, 229, 0.1);
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.search-loading {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--surface);
+  border: 2px solid var(--primary-color);
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  padding: 1rem;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  z-index: 100;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.weather-btn {
+  padding: 0.75rem 2rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.weather-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
+.weather-error {
+  background-color: #fee2e2;
+  color: var(--danger-color);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid var(--danger-color);
+}
+
+.weather-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+}
+
+.weather-header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.weather-icon-large {
+  font-size: 5rem;
+}
+
+.weather-info {
+  flex: 1;
+}
+
+.weather-city {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.weather-description {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  text-transform: capitalize;
+}
+
+.weather-temperature {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.temp-value {
+  font-size: 4rem;
+  font-weight: 700;
+}
+
+.feels-like {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.weather-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+}
+
+.weather-detail {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+}
+
+.detail-icon {
+  display: block;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.detail-label {
+  display: block;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 0.5rem;
+}
+
+.detail-value {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
